@@ -13,6 +13,8 @@ class Author extends Model
 
     protected $hidden = ['created_at','updated_at'];
 
+    protected $table = "authors";
+
     public function posts()
     {
         return $this->hasMany(Post::class);

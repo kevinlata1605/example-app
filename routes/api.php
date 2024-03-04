@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthorController;
+use App\Models\Author;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,7 +31,9 @@ Route::delete('/posts/{post}', [PostController::class, 'delete']);
 //Author
 Route::get('/authors', [AuthorController::class, 'index']);
 Route::get('/authors/{author}', [AuthorController::class, 'show']);
-
+Route::post('/authors', [AuthorController::class, 'store']);
+Route::put('/authors/{author}', [AuthorController::class, 'update']);
+Route::delete('/authors/{author}', [AuthorController::class, 'delete']);
 Route::get('/authors/{author}/posts', [AuthorController::class, 'show']);
 
 //Route::apiResource('/posts', PostController::class);

@@ -28,6 +28,10 @@ class PostController extends Controller
         $post->observation = $request->observation;
         $post->author_id = $request->author_id;
 
+
+        $post->save();
+        return $post;
+
         /**
          * $author = new Author();
          * $author->name = $request->author['name'];
@@ -37,10 +41,6 @@ class PostController extends Controller
          * $post->author_id  = $author->id;
          */
 
-
-
-        $post->save();
-        return $post;
     }
 
     //obtener solo 1 recurso GET

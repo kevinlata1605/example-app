@@ -22,7 +22,13 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
+        $author = new Author();
+        $author->name = $request->name;
+        $author->lastname = $request->lastname;
+        $author->birth_date = $request->birth_date;
 
+        $author->save();
+        return $author;
     }
 
     /**
@@ -44,16 +50,25 @@ class AuthorController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Author $author)
     {
-        //
+        $author = Author::find($author->id);
+        $author->name = $request->input('name');
+        $author->lastname = $request->input('lastname');
+        $author->birth_date = $request->input('birth_date');
+
+        $author->save();
+        return $author;
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function delete(Author $author)
     {
-        //
+        $author = Author::find($author->id);
+        $author -> delete();
+
+        return $author;
     }
 }
