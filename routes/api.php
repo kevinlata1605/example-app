@@ -34,6 +34,6 @@ Route::get('/authors/{author}', [AuthorController::class, 'show']);
 Route::post('/authors', [AuthorController::class, 'store']);
 Route::put('/authors/{author}', [AuthorController::class, 'update']);
 Route::delete('/authors/{author}', [AuthorController::class, 'delete']);
-Route::get('/authors/{author}/posts', [AuthorController::class, 'show']);
+Route::get('/authors/{author}/posts', [AuthorController::class, 'getPostByAuthor']);
 
 //Route::apiResource('/posts', PostController::class);

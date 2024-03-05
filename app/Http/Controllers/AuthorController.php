@@ -36,6 +36,11 @@ class AuthorController extends Controller
      */
     public function show(Author $author)
     {
+        return Author::find($author->id);
+    }
+
+    public function getPostByAuthor(Author $author)
+    {
         return new AuthorResource(Author::find($author->id));
     }
 
